@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "649908007970",
+    "project_id": "ecoera-fourfront",
+    "storage_bucket": "ecoera-fourfront.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649908007970:android:aad429c9c0567cc5d6067b",
+        "android_client_info": {
+          "package_name": "com.example.ecoera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649908007970-o151t16gdd725k1ut6q24dv82qrnb84o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHRkjsVA6BP_XfiEgZFsueA-CZULQNljs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649908007970-o151t16gdd725k1ut6q24dv82qrnb84o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "649908007970-3p5bivsndrvhs3k9obtpu2ofcs6ldmla.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ecoera"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
