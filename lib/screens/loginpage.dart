@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
                 height: 150,
               ),
               const SizedBox(height: 20.0),
-              Text(
+              const Text(
                 'Login',
                 style: TextStyle(
                   fontSize: 24.0,
@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
                   fontFamily: 'Poppins',
                 ),
               ),
-              SizedBox(height: 20.0),
+             const SizedBox(height: 20.0),
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Username',
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.0)),
                 ),
               ),
-              SizedBox(height: 15.0),
+             const SizedBox(height: 15.0),
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Password',
@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.0)),
                 ),
               ),
-              SizedBox(height: 10.0),
+             const SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -48,7 +48,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       // TODO: Implement forgot password functionality
                     },
-                    child: Text(
+                    child: const Text(
                       'Forgot Password?',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
@@ -58,15 +58,15 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+             const  SizedBox(height: 20.0),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                   onPressed: () {
                     // TODO: Implement login functionality
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(10.0),
                     child: Text('Login',
                         style: TextStyle(
                           fontFamily: 'Poppins',
@@ -76,8 +76,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10.0),
-              Divider(
+               const SizedBox(height: 10.0),
+               const Divider(
                 color: Colors.black,
                 thickness: 2.0, // Adjust the thickness (width) as needed
               ),
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                       print('Google Button Pressed');
                     },
                   ),
-                  SizedBox(width: 10.0), // Add some space between the buttons
+                  const  SizedBox(width: 10.0), // Add some space between the buttons
                   SocialButton(
                     imagePath:
                         'assets/icons/facebook_logo.png', // Replace with your Facebook logo path
