@@ -1,6 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  User? _user;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _auth.authStateChanges().listen((event) {
+      setState(() {
+        _user = event;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,8 +109,14 @@ class LoginPage extends StatelessWidget {
                     imagePath:
                         'assets/icons/google_logo.png', // Replace with your Google logo path
                     onPressed: () {
-                      // Google button pressed action
-                      print('Google Button Pressed');
+                      try {
+                        GoogleAuthProvider googleAuthProvider =
+                            GoogleAuthProvider();
+                        _auth.signInWithProvider(googleAuthProvider);
+                        print("done");
+                      } catch (e) {
+                        print(e);
+                      }
                     },
                   ),
                   SizedBox(width: 10.0), // Add some space between the buttons
