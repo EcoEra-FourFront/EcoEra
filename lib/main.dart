@@ -1,4 +1,5 @@
 import 'package:ecoera/firebase_options.dart';
+import 'package:ecoera/screens/homescreen.dart';
 import 'package:ecoera/screens/loginpage.dart';
 import 'package:ecoera/themes.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'EcoEra',
       theme: AppThemes.appTheme,
-      home: LoginPage(),
+      home: HomeScreen(),
     );
   }
 }
