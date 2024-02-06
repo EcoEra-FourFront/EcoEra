@@ -1,4 +1,15 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+
+const _kPages = <String, IconData>{
+  'Rewards': Icons.card_giftcard,
+  'Info': Icons.info,
+  'Capture': Icons.camera_alt_rounded,
+  'Comm': Icons.people,
+  'Profile': Icons.person,
+};
 
 void main() {
   runApp(const HomeScreen());
@@ -9,152 +20,263 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ConvexAppExample(),
+    );
+  }
+}
+
+class ConvexAppExample extends StatefulWidget {
+  const ConvexAppExample({Key? key}) : super(key: key);
+
+  @override
+  _ConvexAppExampleState createState() => _ConvexAppExampleState();
+}
+
+class _ConvexAppExampleState extends State<ConvexAppExample> {
+  final TabStyle _tabStyle = TabStyle.reactCircle;
+  int selectedIndex = 2;
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 5,
+      initialIndex: 2,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Container(
-          padding: const EdgeInsets.symmetric(
-             horizontal: 20,
-            vertical: 4,
-          ),
-          child: Column(
-            children: [
-              const SizedBox(height: 9),
-              SizedBox(
-                height: 550,
-                width: 411,
-                child: Stack(
-                  alignment: Alignment.topCenter,
-                  children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Card(
-                        clipBehavior: Clip.antiAlias,
-                        elevation: 0,
-                        margin: const EdgeInsets.all(0),
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                            color: Colors.blue,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Container(
-                          height: 173,
-                          width: 353,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 64,
-                            vertical: 19,
-                          ),
-                          child: const Stack(
-                            alignment: Alignment.topLeft,
-                            children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: SizedBox(
-                                  height: 132,
-                                  width: 223,
-                                  child: Stack(
-                                    alignment: Alignment.bottomRight,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                          padding: EdgeInsets.only(
-                                            left: 57,
-                                            right: 10,
-                                            bottom: 12,
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(left: 46),
-                                                child: Text(
-                                                  "March",
-                                                  style: TextStyle(fontSize: 8),
-                                                ),
-                                              ),
-                                              SizedBox(height: 11),
-                                              Text(
-                                                "February",
-                                                style: TextStyle(fontSize: 8),
-                                              ),
-                                              SizedBox(height: 11),
-                                              Align(
-                                                alignment:
-                                                    Alignment.centerRight,
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 48),
-                                                  child: Text(
-                                                    "April",
-                                                    style:
-                                                        TextStyle(fontSize: 8),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(height: 14),
-                                              Align(
-                                                alignment:
-                                                    Alignment.centerRight,
-                                                child: Text(
-                                                  "May",
-                                                  style: TextStyle(fontSize: 8),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 11),
-                                  child: Text(
-                                    "January",
-                                    style: TextStyle(fontSize: 8),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Center(
+                  child: Row(children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 22.0),
+                      child: Text(
+                        "Hello User!",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 30),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
+                    const SizedBox(
+                      width: 70,
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
                       child: Container(
-                        height: 21,
-                        width: 143,
-                        margin:const  EdgeInsets.only(top: 161),
-                        color: Colors.grey[50],
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding:const  EdgeInsets.only(top: 163),
-                        child: Text(
-                          "Monthly Analysis",
-                          style: Theme.of(context).textTheme.titleLarge,
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.blue,
+                            width: 2,
+                          ),
+                          shape: BoxShape.circle,
+                        ),
+                        child: SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: Center(
+                            child: IconButton(
+                              icon: const Icon(Icons.person),
+                              onPressed: () {},
+                            ),
+                          ),
                         ),
                       ),
                     ),
+                  ]),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: 320,
+                      height: 200,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0.0, 1.0),
+                            blurRadius: 6.0,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        height: 20,
+                      ),
+                    ),
+                    // const SizedBox(
+                    //   width: 100,
+                    //   height: 10,
+                    //   child: Row(
+                    //     children: [
+                    //       Text(
+                    //         "Monthly Analysis",
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.bold,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0.0, 1.0),
+                                    blurRadius: 6.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0.0, 1.0),
+                                    blurRadius: 6.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        //add a space between the rows
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0.0, 1.0),
+                                    blurRadius: 6.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Container(
+                              height: 150,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0.0, 1.0),
+                                    blurRadius: 6.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )
                   ],
                 ),
-              ),
-             const  SizedBox(height: 24),
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
         ),
+
+bottomNavigationBar: Padding(
+  padding: const EdgeInsets.only(bottom: 8.0),
+  child: ClipRRect(
+    borderRadius: const BorderRadius.all(Radius.circular(30)),
+    child: ConvexAppBar.badge(
+      const <int, dynamic>{3: '99+'},
+      style: _tabStyle,
+      items: <TabItem>[
+        for (final entry in _kPages.entries)
+          TabItem(
+            icon: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Container(
+                  width: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 46.0 : 0.0,
+                  height: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 46.0 : 0.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: const Color(0xFF005BC4),
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                Icon(
+                  entry.value,
+                  color: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+                      ? const Color(0xFF005BC4)
+                      : Colors.black,
+                  size: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+                      ? 30.0 // size when selected
+                      : 24.0, // default size
+                ),
+              ],
+            ),
+            title: entry.key,
+          ),
+      ],
+      height: 68,
+      backgroundColor: Colors.green,
+      onTap: (int i) {
+        setState(() {
+          selectedIndex = i;
+        });
+        print('click index=$i');
+      },
+    ),
+  ),
+),
       ),
     );
   }
