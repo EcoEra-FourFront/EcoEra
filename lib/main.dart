@@ -20,7 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'EcoEra',
-      theme: AppThemes.appTheme,
+      theme: ThemeData(
+        fontFamily: "Poppins",
+        primarySwatch: Colors.green,
+        primaryColor: Colors.green,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       home: LoginPage(),
     );
   }

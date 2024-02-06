@@ -1,5 +1,7 @@
+import 'package:ecoera/screens/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sign_button/sign_button.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -36,98 +38,53 @@ class _LoginPageState extends State<LoginPage> {
                 width: 150,
                 height: 150,
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 30.0),
               Text(
-                'Login',
+                'Welcome to EcoEra',
                 style: TextStyle(
-                  fontSize: 24.0,
+                  fontSize: 22.0,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
+                  fontFamily: "Raleway",
                 ),
               ),
-              SizedBox(height: 20.0),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0)),
-                ),
-              ),
-              SizedBox(height: 15.0),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0)),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Row(
+              SizedBox(height: 30.0),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: () {
-                      // TODO: Implement forgot password functionality
-                    },
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.0),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // TODO: Implement login functionality
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text('Login',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                        )),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Divider(
-                color: Colors.black,
-                thickness: 2.0, // Adjust the thickness (width) as needed
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SocialButton(
-                    imagePath:
-                        'assets/icons/google_logo.png', // Replace with your Google logo path
-                    onPressed: () {
-                      try {
-                        GoogleAuthProvider googleAuthProvider =
-                            GoogleAuthProvider();
-                        _auth.signInWithProvider(googleAuthProvider);
-                        print("done");
-                      } catch (e) {
-                        print(e);
-                      }
-                    },
-                  ),
-                  SizedBox(width: 10.0), // Add some space between the buttons
-                  SocialButton(
-                    imagePath:
-                        'assets/icons/facebook_logo.png', // Replace with your Facebook logo path
-                    onPressed: () {
-                      // Facebook button pressed action
-                      print('Facebook Button Pressed');
-                    },
-                  ),
+                  SignInButton(
+                      buttonSize: ButtonSize.medium,
+                      width: 250.0,
+                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      buttonType: ButtonType.google,
+                      onPressed: () {
+                        try {
+                          GoogleAuthProvider googleAuthProvider =
+                              GoogleAuthProvider();
+                          _auth.signInWithProvider(googleAuthProvider);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomeScreen()));
+                        } catch (e) {
+                          print(e);
+                        }
+                      }),
+                  SizedBox(height: 20.0),
+                  SignInButton(
+                      width: 250.0,
+                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      btnTextColor: Colors.black,
+                      buttonSize: ButtonSize.medium,
+                      buttonType: ButtonType.facebook,
+                      onPressed: () {}),
+                  SizedBox(height: 20.0),
+                  SignInButton(
+                      width: 250.0,
+                      buttonSize: ButtonSize.medium,
+                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      btnTextColor: Colors.black,
+                      buttonType: ButtonType.twitterX,
+                      onPressed: () {}),
                 ],
               ),
             ],
