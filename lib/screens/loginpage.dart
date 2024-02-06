@@ -39,12 +39,16 @@ class _LoginPageState extends State<LoginPage> {
                 height: 150,
               ),
               const SizedBox(height: 30.0),
-              Text(
-                'Welcome to EcoEra',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Raleway",
+              Container(
+                width: 220,
+                child: Text(
+                  'You are one step away from a greener world!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Raleway",
+                  ),
                 ),
               ),
               SizedBox(height: 30.0),
