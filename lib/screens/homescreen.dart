@@ -227,56 +227,101 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           ),
         ),
 
-bottomNavigationBar: Padding(
-  padding: const EdgeInsets.only(bottom: 8.0),
-  child: ClipRRect(
-    borderRadius: const BorderRadius.all(Radius.circular(30)),
-    child: ConvexAppBar.badge(
-      const <int, dynamic>{3: '99+'},
-      style: _tabStyle,
-      items: <TabItem>[
-        for (final entry in _kPages.entries)
-          TabItem(
-            icon: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Container(
-                  width: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 46.0 : 0.0,
-                  height: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 46.0 : 0.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: const Color(0xFF005BC4),
-                      width: 2.0,
-                    ),
-                  ),
-                ),
-                Icon(
-                  entry.value,
+// bottomNavigationBar: Padding(
+//   padding: const EdgeInsets.only(bottom: 8.0),
+//   child: ClipRRect(
+//     borderRadius: const BorderRadius.all(Radius.circular(30)),
+//     child: ConvexAppBar.badge(
+//       const <int, dynamic>{3: '99+'},
+//       style: _tabStyle,
+//       items: <TabItem>[
+//         for (final entry in _kPages.entries)
+//           TabItem(
+//             icon: Stack(
+//               alignment: Alignment.center,
+//               children: <Widget>[
+//                 Container(
+//                   width: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 46.0 : 0.0,
+//                   height: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 44.0 : 0.0,
+//                   decoration: BoxDecoration(
+//                     color: Colors.white,
+//                     shape: BoxShape.circle,
+//                     border: Border.all(
+//                       color: const Color(0xFF005BC4),
+//                       width: 2.0,
+//                     ),
+//                   ),
+//                 ),
+//                 Icon(
+//                   entry.value,
+//                   color: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+//                       ? const Color(0xFF005BC4)
+//                       : Colors.black,
+//                   size: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+//                       ? 30.0 // size when selected
+//                       : 24.0, // default size
+//                 ),
+//               ],
+//             ),
+//             title: entry.key,
+//           ),
+//       ],
+//       height: 68,
+//       backgroundColor: Colors.green,
+//       onTap: (int i) {
+//         setState(() {
+//           selectedIndex = i;
+//         });
+//         print('click index=$i');
+//       },
+//     ),
+//   ),
+// ),
+        bottomNavigationBar: ConvexAppBar.badge(
+  const <int, dynamic>{3: '99+'},
+  style: _tabStyle,
+  items: <TabItem>[
+    for (final entry in _kPages.entries)
+      TabItem(
+        icon: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              width: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 50.0 : 0.0,
+              height: _kPages.keys.toList().indexOf(entry.key) == selectedIndex ? 50.0 : 0.0,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
                   color: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
                       ? const Color(0xFF005BC4)
-                      : Colors.black,
-                  size: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
-                      ? 30.0 // size when selected
-                      : 24.0, // default size
+                      : Colors.transparent,
+                  width: 2.0,
                 ),
-              ],
+              ),
             ),
-            title: entry.key,
-          ),
-      ],
-      height: 68,
-      backgroundColor: Colors.green,
-      onTap: (int i) {
-        setState(() {
-          selectedIndex = i;
-        });
-        print('click index=$i');
-      },
-    ),
-  ),
-),
+            Icon(
+              entry.value,
+              color: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+                  ? const Color(0xFF005BC4)
+                  : Colors.black,
+              size: _kPages.keys.toList().indexOf(entry.key) == selectedIndex
+                  ? 30.0 // size when selected
+                  : 24.0, // default size
+            ),
+          ],
+        ),
+        title: entry.key,
+      ),
+  ],
+  height: 60,
+  backgroundColor: Colors.green,
+  onTap: (int i) {
+    setState(() {
+      selectedIndex = i;
+    });
+    print('click index=$i');
+  },
+)
       ),
     );
   }
