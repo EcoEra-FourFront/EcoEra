@@ -1,61 +1,91 @@
-// Import necessary packages and files
 import 'package:flutter/material.dart';
 
 // Community page widget
 class CommunityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).padding.top;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Community Page'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16.0,
-            vertical: 20.0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          automaticallyImplyLeading: false,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Add the top image without any text
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12.0),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: Image.asset(
-                  'assets/images/ewcycle.png',
-                  height: MediaQuery.of(context).size.height * 0.25,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+                  'assets/images/home.png',
+                  height: 50.0,
+                  width: 50.0,
                 ),
               ),
-              SizedBox(height: 16.0), // Add spacing here
-
-              // DisplayWithInfo widgets without text
-              DisplayWithInfo(
-                context: context,
-                imagePath: 'assets/images/microsoft.png',
+              Text(
+                'Community',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              SizedBox(height: 16.0), // Increase spacing here
-              DisplayWithInfo(
-                context: context,
-                imagePath: 'assets/images/Chennai.png',
-              ),
-              SizedBox(height: 16.0), // Increase spacing here
-              DisplayWithInfo(
-                context: context,
-                imagePath: 'assets/images/Dump.png',
+              Image.asset(
+                'assets/images/logo_noname.png',
+                height: 50.0,
+                width: 50.0,
               ),
             ],
+          ),
+        ),
+        body: Padding(
+          padding: EdgeInsets.fromLTRB(
+              16.0, statusBarHeight + 16.0, 16.0, 16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12.0),
+                  child: Image.asset(
+                    'assets/images/ewcycle.png',
+                    height: MediaQuery.of(context).size.height * 0.20,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                DisplayWithInfo(
+                  context: context,
+                  imagePath: 'assets/images/microsoft.png',
+                  text:
+                      'Microsoft ending Windows 10 support could turn 240 million PCs into e-waste',
+                ),
+                SizedBox(height: 16.0),
+                DisplayWithInfo(
+                  context: context,
+                  imagePath: 'assets/images/Chennai.png',
+                  text: 'E-waste collection campaign launched in Chennai',
+                ),
+                SizedBox(height: 16.0),
+                DisplayWithInfo(
+                  context: context,
+                  imagePath: 'assets/images/Dump.png',
+                  text:
+                      'Dump and donate: Month-long e-waste collection drive across 120 cities launched',
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  // DisplayWithInfo widget
   Widget DisplayWithInfo({
     required BuildContext context,
     required String imagePath,
+    required String text,
   }) {
     return Container(
       height: 100.0,
@@ -68,7 +98,6 @@ class CommunityPage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Left side image
           Container(
             width: MediaQuery.of(context).size.width * 0.35,
             child: Image.asset(
@@ -85,8 +114,7 @@ class CommunityPage extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(width: 8.0), // Increase spacing between image and text
-          // Right side text
+          SizedBox(width: 8.0),
           Expanded(
             child: Container(
               padding: EdgeInsets.symmetric(
@@ -94,11 +122,12 @@ class CommunityPage extends StatelessWidget {
                 vertical: 8.0,
               ),
               child: Text(
-                'Sample text for DisplayWithInfo widget. Add your own content here.',
+                text,
                 style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.justify,
               ),
             ),
           ),
