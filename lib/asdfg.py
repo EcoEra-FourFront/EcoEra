@@ -1,8 +1,8 @@
-
 from tensorflow import keras
 from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
+
 # import PIL
 model = load_model('my_model.h5')
 model.make_predict_function()
