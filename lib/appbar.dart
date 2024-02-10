@@ -1,5 +1,7 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'community.dart';
+import 'info_page.dart';
 
 const _kPages = <String, IconData>{
   'Rewards': Icons.card_giftcard,
@@ -25,6 +27,15 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
       length: 5,
       initialIndex: 2,
       child: Scaffold(
+        body: TabBarView(
+          children: <Widget>[
+            Container(child: const Text('Rewards Page')),
+            InfoPage(),
+            Container(child: const Text('Capture Page')),
+            CommunityPage(),
+            Container(child: const Text('Profile Page')),
+          ],
+        ),
         bottomNavigationBar: ConvexAppBar.badge(
           const <int, dynamic>{3: '99+'},
           style: _tabStyle,
@@ -34,7 +45,16 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           ],
           height: 60,
           backgroundColor: Colors.green,
-          onTap: (int i) => print('click index=$i'),
+          onTap: (int i) {
+            if (i == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CommunityPage()),
+              );
+            } else {
+              print('click index=$i');
+            }
+          },
         ),
       ),
     );
