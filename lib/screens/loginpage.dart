@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:sign_button/sign_button.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -39,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 150,
               ),
               const SizedBox(height: 30.0),
-              Container(
+              const SizedBox(
                 width: 220,
                 child: Text(
                   'You are one step away from a greener world!',
@@ -51,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -68,7 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()));
+                                  builder: (context) => _user != null
+                                      ? const LoginPage()
+                                      : const HomeScreen()));
                         } catch (e) {
                           print(e);
                         }

@@ -257,17 +257,6 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
                           ),
                         ),
                       ),
-                      Icon(
-                        entry.value,
-                        color: _kPages.keys.toList().indexOf(entry.key) ==
-                                selectedIndex
-                            ? const Color(0xFF005BC4)
-                            : Colors.black,
-                        size: _kPages.keys.toList().indexOf(entry.key) ==
-                                selectedIndex
-                            ? 30.0 // size when selected
-                            : 24.0, // default size
-                      ),
                     ],
                   ),
                   title: entry.key,

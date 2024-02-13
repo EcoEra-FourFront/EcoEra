@@ -19,6 +19,8 @@ class _MapScreenState extends State<MapScreen> {
 
   LatLng? _currentPosition;
 
+  BitmapDescriptor? markerbitmap;
+
   @override
   void initState() {
     super.initState();
@@ -28,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _currentPosition == null
+      body: _currentPosition == null || markerbitmap == null
           ? const Center(
               child: Text("Loading..."),
             )
@@ -41,9 +43,21 @@ class _MapScreenState extends State<MapScreen> {
               ),
               markers: {
                 Marker(
-                  markerId: MarkerId("current"),
-                  icon: BitmapDescriptor.defaultMarker,
+                  markerId: const MarkerId("current"),
+                  icon: markerbitmap!,
                   position: _currentPosition!,
+                ),
+                Marker(
+                  markerId: const MarkerId("near1"),
+                  icon: markerbitmap!,
+                  position: LatLng(_currentPosition!.latitude + 0.0001,
+                      _currentPosition!.longitude + 0.0001),
+                ),
+                Marker(
+                  markerId: const MarkerId("near2"),
+                  icon: markerbitmap!,
+                  position: LatLng(_currentPosition!.latitude - 0.0001,
+                      _currentPosition!.longitude - 0.0001),
                 ),
               },
             ),
@@ -65,6 +79,9 @@ class _MapScreenState extends State<MapScreen> {
     PermissionStatus _permissionGranted;
 
     _serviceEnabled = await _locationController.serviceEnabled();
+    markerbitmap = await BitmapDescriptor.fromAssetImage(
+        const ImageConfiguration(size: Size(25, 30)),
+        "assets/icons/ecoera_maps.png");
 
     if (_serviceEnabled) {
       _serviceEnabled = await _locationController.requestService();
