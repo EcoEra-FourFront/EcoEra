@@ -1,3 +1,4 @@
+import 'package:ecoera/community.dart';
 import 'package:ecoera/firebase_options.dart';
 import 'package:ecoera/screens/homescreen.dart';
 import 'package:ecoera/screens/loginpage.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const MapScreen(),
+      home:const CommunityPage(),
     );
   }
 }

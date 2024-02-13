@@ -1,7 +1,32 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 
-// Community page widget
+void main() {
+  runApp(const CommunityPage());
+}
+
 class CommunityPage extends StatelessWidget {
+  const CommunityPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ConvexAppExample(),
+    );
+  }
+}
+
+class ConvexAppExample extends StatefulWidget {
+  const ConvexAppExample({Key? key}) : super(key: key);
+
+  @override
+  _ConvexAppExampleState createState() => _ConvexAppExampleState();
+}
+
+class _ConvexAppExampleState extends State<ConvexAppExample> {
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -23,7 +48,7 @@ class CommunityPage extends StatelessWidget {
                   width: 50.0,
                 ),
               ),
-              Text(
+              const Text(
                 'Community',
                 style: TextStyle(
                   fontSize: 24.0,
@@ -39,8 +64,8 @@ class CommunityPage extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.fromLTRB(
-              16.0, statusBarHeight + 16.0, 16.0, 16.0),
+          padding:
+              EdgeInsets.fromLTRB(16.0, statusBarHeight + 16.0, 16.0, 16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,20 +79,20 @@ class CommunityPage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/microsoft.png',
                   text:
                       'Microsoft ending Windows 10 support could turn 240 million PCs into e-waste',
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/Chennai.png',
                   text: 'E-waste collection campaign launched in Chennai',
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/Dump.png',
@@ -98,14 +123,14 @@ class CommunityPage extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.35,
             child: Image.asset(
               imagePath,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 print('Error loading image: $error');
-                return Center(
+                return const Center(
                   child: Text(
                     'Image Error',
                     style: TextStyle(color: Colors.red),
@@ -114,16 +139,16 @@ class CommunityPage extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 8.0,
                 vertical: 8.0,
               ),
               child: Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                 ),

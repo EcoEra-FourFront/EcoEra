@@ -20,7 +20,7 @@ class ConvexAppExample extends StatefulWidget {
 
 class _ConvexAppExampleState extends State<ConvexAppExample> {
   final TabStyle _tabStyle = TabStyle.reactCircle;
-
+  int selectedIndex = 2;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -37,23 +37,57 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           ],
         ),
         bottomNavigationBar: ConvexAppBar.badge(
-          const <int, dynamic>{3: '99+'},
+          const <int, dynamic>{3: ''},
           style: _tabStyle,
           items: <TabItem>[
             for (final entry in _kPages.entries)
-              TabItem(icon: entry.value, title: entry.key),
+              TabItem(
+                icon: Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: _kPages.keys.toList().indexOf(entry.key) ==
+                              selectedIndex
+                          ? 50.0
+                          : 0.0,
+                      height: _kPages.keys.toList().indexOf(entry.key) ==
+                              selectedIndex
+                          ? 50.0
+                          : 0.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: _kPages.keys.toList().indexOf(entry.key) ==
+                                  selectedIndex
+                              ? const Color(0xFF005BC4)
+                              : Colors.transparent,
+                          width: 2.0,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      entry.value,
+                      color: _kPages.keys.toList().indexOf(entry.key) ==
+                              selectedIndex
+                          ? const Color(0xFF005BC4)
+                          : Colors.black,
+                      size: _kPages.keys.toList().indexOf(entry.key) ==
+                              selectedIndex
+                          ? 30.0 // size when selected
+                          : 24.0, // default size
+                    ),
+                  ],
+                ),
+                title: entry.key,
+              ),
           ],
           height: 60,
           backgroundColor: Colors.green,
           onTap: (int i) {
-            if (i == 3) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CommunityPage()),
-              );
-            } else {
-              print('click index=$i');
-            }
+            setState(() {
+              selectedIndex = i;
+            });
+            print('click index=$i');
           },
         ),
       ),
