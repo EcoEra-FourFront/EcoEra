@@ -21,6 +21,7 @@ class ConvexAppExample extends StatefulWidget {
 class _ConvexAppExampleState extends State<ConvexAppExample> {
   final TabStyle _tabStyle = TabStyle.reactCircle;
   int selectedIndex = 2;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -37,7 +38,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           ],
         ),
         bottomNavigationBar: ConvexAppBar.badge(
-          const <int, dynamic>{3: ''},
+          const <int, dynamic>{3: '99+'},
           style: _tabStyle,
           items: <TabItem>[
             for (final entry in _kPages.entries)
@@ -84,10 +85,17 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           height: 60,
           backgroundColor: Colors.green,
           onTap: (int i) {
-            setState(() {
-              selectedIndex = i;
-            });
-            print('click index=$i');
+            if (i == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CommunityPage()),
+              );
+            } else {
+              setState(() {
+                selectedIndex = i;
+              });
+              print('click index=$i');
+            }
           },
         ),
       ),

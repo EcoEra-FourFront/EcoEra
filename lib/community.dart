@@ -1,29 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const CommunityPage());
-}
-
+// Community page widget
 class CommunityPage extends StatelessWidget {
-  const CommunityPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ConvexAppExample(),
-    );
-  }
-}
-
-class ConvexAppExample extends StatefulWidget {
-  const ConvexAppExample({Key? key}) : super(key: key);
-
-  @override
-  _ConvexAppExampleState createState() => _ConvexAppExampleState();
-}
-
-class _ConvexAppExampleState extends State<ConvexAppExample> {
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -45,7 +23,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
                   width: 50.0,
                 ),
               ),
-              const Text(
+              Text(
                 'Community',
                 style: TextStyle(
                   fontSize: 24.0,
@@ -61,8 +39,8 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
           ),
         ),
         body: Padding(
-          padding:
-              EdgeInsets.fromLTRB(16.0, statusBarHeight + 16.0, 16.0, 16.0),
+          padding: EdgeInsets.fromLTRB(
+              16.0, statusBarHeight + 16.0, 16.0, 16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,20 +54,20 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(height: 16.0),
+                SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/microsoft.png',
                   text:
                       'Microsoft ending Windows 10 support could turn 240 million PCs into e-waste',
                 ),
-                const SizedBox(height: 16.0),
+                SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/Chennai.png',
                   text: 'E-waste collection campaign launched in Chennai',
                 ),
-                const SizedBox(height: 16.0),
+                SizedBox(height: 16.0),
                 DisplayWithInfo(
                   context: context,
                   imagePath: 'assets/images/Dump.png',
@@ -120,14 +98,14 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
       ),
       child: Row(
         children: [
-          SizedBox(
+          Container(
             width: MediaQuery.of(context).size.width * 0.35,
             child: Image.asset(
               imagePath,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 print('Error loading image: $error');
-                return const Center(
+                return Center(
                   child: Text(
                     'Image Error',
                     style: TextStyle(color: Colors.red),
@@ -136,16 +114,16 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
               },
             ),
           ),
-          const SizedBox(width: 8.0),
+          SizedBox(width: 8.0),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: 8.0,
                 vertical: 8.0,
               ),
               child: Text(
                 text,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                 ),
