@@ -69,8 +69,9 @@ class _LoginPageState extends State<LoginPage> {
                           _auth.signInWithProvider(googleAuthProvider);
                           Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()));
+                              MaterialPageRoute(builder: (context) => _user != null
+                                      ? const LoginPage()
+                                      : const HomeScreen()));
                         } catch (e) {
                           print(e);
                         }

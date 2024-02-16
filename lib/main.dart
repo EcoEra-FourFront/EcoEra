@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const Community(),
+      home: const LoginPage(),
     );
   }
 }
