@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                   SignInButton(
                       buttonSize: ButtonSize.medium,
                       width: 250.0,
-                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      btnColor: const Color.fromARGB(255, 240, 240, 240),
                       buttonType: ButtonType.google,
                       onPressed: () {
                         try {
@@ -77,19 +77,19 @@ class _LoginPageState extends State<LoginPage> {
                           print(e);
                         }
                       }),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SignInButton(
                       width: 250.0,
-                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      btnColor: const Color.fromARGB(255, 240, 240, 240),
                       btnTextColor: Colors.black,
                       buttonSize: ButtonSize.medium,
                       buttonType: ButtonType.facebook,
                       onPressed: () {}),
-                  SizedBox(height: 20.0),
+                 const  SizedBox(height: 20.0),
                   SignInButton(
                       width: 250.0,
                       buttonSize: ButtonSize.medium,
-                      btnColor: Color.fromARGB(255, 240, 240, 240),
+                      btnColor: const Color.fromARGB(255, 240, 240, 240),
                       btnTextColor: Colors.black,
                       buttonType: ButtonType.twitterX,
                       onPressed: () {}),
