@@ -1,6 +1,6 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'community.dart';
+import 'screens/community.dart';
 import 'info_page.dart';
 
 const _kPages = <String, IconData>{
@@ -33,7 +33,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
             Container(child: const Text('Rewards Page')),
             InfoPage(),
             Container(child: const Text('Capture Page')),
-            CommunityPage(),
+            Community(),
             Container(child: const Text('Profile Page')),
           ],
         ),
@@ -88,7 +88,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
             if (i == 3) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CommunityPage()),
+                MaterialPageRoute(builder: (context) => Community()),
               );
             } else {
               setState(() {

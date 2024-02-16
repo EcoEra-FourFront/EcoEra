@@ -29,3 +29,5 @@ def predict_image(img_url):
 if __name__ == "__main__":
     url = input("Please enter the image URL: ")
     print(predict_image(url))
+
+   
