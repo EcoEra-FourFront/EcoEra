@@ -1,7 +1,6 @@
 import 'package:ecoera/firebase_options.dart';
 import 'package:ecoera/screens/community.dart';
 import 'package:ecoera/screens/loginpage.dart';
-import 'package:ecoera/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: SplashScreen(),
+      home: const Community(),
     );
   }
 }
