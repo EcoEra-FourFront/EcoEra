@@ -1,19 +1,27 @@
-import 'package:ecoera/firebase_options.dart';
-import 'package:ecoera/screens/community.dart';
-import 'package:ecoera/screens/loginpage.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:ecoera/screens/community.dart';
+import 'package:ecoera/screens/profile.dart';
+import 'package:ecoera/screens/info_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+const _kPages = <String, IconData>{
+  'Rewards': Icons.card_giftcard,
+  'Info': Icons.info,
+  'Capture': Icons.camera_alt_rounded,
+  'Comm': Icons.people,
+  'Profile': Icons.person,
+};
+
+class ConvexAppExample extends StatefulWidget {
+  const ConvexAppExample({Key? key}) : super(key: key);
+
+  @override
+  _ConvexAppExampleState createState() => _ConvexAppExampleState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _ConvexAppExampleState extends State<ConvexAppExample> {
+  final TabStyle _tabStyle = TabStyle.reactCircle;
+  int selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {

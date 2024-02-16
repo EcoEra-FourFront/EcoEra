@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,12 +30,11 @@ class Community extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-       
       body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top:15),
-            child: Column(
-                    children: [
+        padding: const EdgeInsets.only(top: 15),
+        child: Column(
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -43,7 +43,7 @@ class Community extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   // increse the size of icon
-            
+
                   child: const SizedBox(
                     height: 40,
                     width: 40,
@@ -51,7 +51,7 @@ class Community extends StatelessWidget {
                   ),
                 ),
                 // spacer
-            
+
                 const Text(
                   'Community',
                   style: TextStyle(
@@ -62,7 +62,7 @@ class Community extends StatelessWidget {
                     color: Color(0xFF012C5E),
                   ),
                 ),
-            
+
                 // icon from assets 'logo_without_name.png'
                 Image.asset(
                   'assets/icons/logo_without_name.png',
@@ -71,7 +71,7 @@ class Community extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             //spacer
             const SizedBox(
               height: 20,
@@ -101,14 +101,14 @@ class Community extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            
+
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Stack(
                   children: [
                     Container(
-                      width: 350,
+                      width: 380,
                       height: 120,
                       decoration: BoxDecoration(
                         color: const Color(0xFFDEEDFF),
@@ -204,7 +204,7 @@ class Community extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      width: 350,
+                      width: 380,
                       height: 120,
                       decoration: BoxDecoration(
                         color: const Color(0xFFDEEDFF),
@@ -300,7 +300,7 @@ class Community extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                      width: 350,
+                      width: 380,
                       height: 120,
                       decoration: BoxDecoration(
                         color: const Color(0xFFDEEDFF),
@@ -390,9 +390,9 @@ class Community extends StatelessWidget {
                 ),
               ),
             ),
-                    ],
-                  ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }
