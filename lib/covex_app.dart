@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:ecoera/screens/community.dart';
 import 'package:ecoera/screens/profile.dart';
-import 'package:ecoera/screens/info_page.dart';
+import 'package:ecoera/screens/info_page.dart'; // Correct import here
 
 const _kPages = <String, IconData>{
   'Rewards': Icons.card_giftcard,
@@ -53,23 +53,17 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return Text('Rewards Page');
+        return Container(child: const Text('Rewards Page'));
       case 1:
-        return InfoPage(); // Remove 'const'
+        return InfoPage();
       case 2:
-        return Text('Capture Page');
+        return Container(child: const Text('Capture Page'));
       case 3:
-        return Community(); // Remove 'const'
+        return const Community();
       case 4:
-        return ProfilePage(); // Remove 'const'
+        return const ProfilePage();
       default:
         return Container();
     }
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: ConvexAppExample(),
-  ));
 }
