@@ -1,13 +1,9 @@
-import 'dart:html';
-import 'dart:js';
-
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:ecoera/imagepicker.dart';
-import 'package:ecoera/info_page.dart';
 import 'package:ecoera/screens/community.dart';
+import 'package:ecoera/screens/info_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 
 const _kPages = <String, IconData>{
   'Rewards': Icons.card_giftcard,
@@ -17,12 +13,9 @@ const _kPages = <String, IconData>{
   'Profile': Icons.person,
 };
 
-void main() {
-  runApp(const HomeScreen());
-}
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final User user;
+  const HomeScreen({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

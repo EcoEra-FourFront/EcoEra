@@ -1,3 +1,4 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:ecoera/screens/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -62,16 +63,22 @@ class _LoginPageState extends State<LoginPage> {
                       width: 250.0,
                       btnColor: const Color.fromARGB(255, 240, 240, 240),
                       buttonType: ButtonType.google,
-                      onPressed: () {
+                      onPressed: () async {
                         try {
                           GoogleAuthProvider googleAuthProvider =
                               GoogleAuthProvider();
-                          _auth.signInWithProvider(googleAuthProvider);
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => _user != null
-                                      ? const LoginPage()
-                                      : const HomeScreen()));
+                          UserCredential userCredential = await _auth
+                              .signInWithProvider(googleAuthProvider);
+                          _user = userCredential.user;
+
+                          Navigator.pushReplacement(  
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => _user != null
+                                  ? HomeScreen(user: _user!) // Pass the user to HomeScreen
+                                  : const LoginPage(),
+                            ),
+                          );
                         } catch (e) {
                           print(e);
                         }
@@ -84,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       buttonSize: ButtonSize.medium,
                       buttonType: ButtonType.facebook,
                       onPressed: () {}),
-                 const  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SignInButton(
                       width: 250.0,
                       buttonSize: ButtonSize.medium,
