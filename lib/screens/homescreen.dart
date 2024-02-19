@@ -1,13 +1,8 @@
-import 'dart:html';
-import 'dart:js';
-
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:ecoera/imagepicker.dart';
-import 'package:ecoera/info_page.dart';
+import 'package:ecoera/screens/info_page.dart';
 import 'package:ecoera/screens/community.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 
 const _kPages = <String, IconData>{
   'Rewards': Icons.card_giftcard,
@@ -46,7 +41,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
 
   final Map<String, WidgetBuilder> routes = {
     '/community': (context) => const Community(),
-    '/info': (context) => InfoPage(),
+    '/info': (context) => const InfoPage(),
     '/image': (context) => const ImagePickerWidget(),
     // Add more pages here
   };
@@ -132,20 +127,6 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
                             height: 20,
                           ),
                         ),
-                        // const SizedBox(
-                        //   width: 100,
-                        //   height: 10,
-                        //   child: Row(
-                        //     children: [
-                        //       Text(
-                        //         "Monthly Analysis",
-                        //         style: TextStyle(
-                        //           fontWeight: FontWeight.bold,
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

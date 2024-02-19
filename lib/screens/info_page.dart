@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatelessWidget {
+  const InfoPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -22,7 +24,7 @@ class InfoPage extends StatelessWidget {
                   width: 50.0,
                 ),
               ),
-              Text(
+              const Text(
                 'Information',
                 style: TextStyle(
                   fontSize: 24.0,
@@ -47,14 +49,14 @@ class InfoPage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'For You',
                       style: TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12.0),
                       child: Image.asset(
@@ -66,15 +68,15 @@ class InfoPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 32.0),
-                Text(
+                const SizedBox(height: 32.0),
+                const Text(
                   'Methods of Recycling E-Waste',
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 SizedBox(
                   height: 150.0,
                   child: Row(
@@ -86,7 +88,7 @@ class InfoPage extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      SizedBox(width: 16.0),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: Image.asset(
                           'assets/images/stage2.png',
@@ -96,18 +98,18 @@ class InfoPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'E-Waste Recycling Process',
                       style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Image.asset(
                       'assets/images/progress.png',
                       width: double.infinity,

@@ -20,19 +20,19 @@ class ProfilePage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             radius: 50,
                             backgroundImage: AssetImage('assets/images/profile.png'),
                           ),
-                          SizedBox(height: 20),
-                          Text(
+                          const SizedBox(height: 20),
+                          const Text(
                             'Username',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           // List of options
                           _buildOption('Edit Profile', () {}),
                           _buildOption('Recycling History', () {}),
@@ -57,7 +57,7 @@ class ProfilePage extends StatelessWidget {
                     onTap: () {
                       // Navigate to home screen
                     },
-                    child: SizedBox(
+                    child:const  SizedBox(
                       height: 40,
                       width: 40,
                       child: Icon(Icons.home),
@@ -71,7 +71,7 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -83,8 +83,8 @@ class ProfilePage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -93,13 +93,13 @@ class ProfilePage extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 1,
               blurRadius: 3,
-              offset: Offset(0, 1),
+              offset: const Offset(0, 1),
             ),
           ],
         ),
         child: Text(
           title,
-          style: TextStyle(
+          style:const  TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
