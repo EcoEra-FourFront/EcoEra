@@ -39,7 +39,7 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
 
   final Map<String, WidgetBuilder> routes = {
     '/community': (context) => const Community(),
-    '/info': (context) => InfoPage(),
+    '/info': (context) => const InfoPage(),
     '/image': (context) => const ImagePickerWidget(),
     // Add more pages here
   };
@@ -125,20 +125,6 @@ class _ConvexAppExampleState extends State<ConvexAppExample> {
                             height: 20,
                           ),
                         ),
-                        // const SizedBox(
-                        //   width: 100,
-                        //   height: 10,
-                        //   child: Row(
-                        //     children: [
-                        //       Text(
-                        //         "Monthly Analysis",
-                        //         style: TextStyle(
-                        //           fontWeight: FontWeight.bold,
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
